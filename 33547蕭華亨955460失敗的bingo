@@ -1,0 +1,38 @@
+//失敗品，很多ng的地方
+//不太會驗證bingo
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+    int bingo[5][5];
+    int number[25] = {0};
+    srand(time(0));
+    int wheel;
+    for (int i = 0; i < 25; i++) {
+        int pick;
+        do {
+            pick = rand() % 25 + 1;
+        } while (number[pick-1] > 0);
+
+        number[pick-1]++;
+
+        cout << pick << "\n";
+    }
+
+
+    for (int i = 0; i < 25; i++){
+        int y = i / 5;
+        int x = i % 5;
+        bingo[y][x] = number[i];
+        
+    
+        do {
+            wheel = rand() % 25 + 1;
+        } 
+        while (number[wheel-1] > 0);
+        number[wheel-1]++;
+        cout << wheel << "\n";
+            }
+
+}
